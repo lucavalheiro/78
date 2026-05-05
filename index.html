@@ -306,198 +306,149 @@ body {
 }
 .part-h2 em { font-style: italic; color: var(--gold-lt); font-weight: 400; }
 
-.part-meta { font-size: .78rem; color: var(--muted); }
-.part-meta strong { color: var(--gold); font-weight: 600; font-size: .95rem; }
+.part-meta { font-size: .8rem; color: var(--muted); letter-spacing: .05em; }
+.part-meta strong { color: var(--gold); font-weight: 600; }
 
-/* search */
-.part-search { margin-bottom: 36px; }
+.part-search { margin-bottom: 40px; }
 .part-search input {
-  width: min(340px, 100%); padding: 13px 18px;
-  background: rgba(255,255,255,.03);
-  border: 1px solid rgba(201,165,90,.18); border-radius: 4px;
-  color: var(--cream); font-family: 'Outfit', sans-serif;
-  font-size: .9rem; outline: none; transition: border-color .3s, box-shadow .3s;
+  width: 100%; max-width: 400px; padding: 14px 20px;
+  background: rgba(255,255,255,.02); border: 1px solid var(--border);
+  border-radius: 30px; color: var(--cream); font-family: 'Outfit', sans-serif;
+  outline: none; transition: border-color .3s, background .3s;
 }
-.part-search input::placeholder { color: rgba(244,240,230,.22); }
-.part-search input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,165,90,.09); }
+.part-search input:focus { border-color: var(--gold); background: rgba(201,165,90,.05); }
 
-/* grid */
 .part-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 1px; border-radius: 4px; overflow: hidden;
-  border: 1px solid var(--border);
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
 }
 
 .part-card {
-  background: var(--navy-card);
-  padding: 20px 22px;
-  display: flex; align-items: center; gap: 16px;
-  transition: background .25s, transform .22s;
-  cursor: default;
-  animation: fadeUp .4s ease both;
+  display: flex; align-items: center; gap: 18px;
+  padding: 20px; background: var(--navy-card);
+  border: 1px solid var(--border); border-radius: 8px;
+  transition: transform .3s, border-color .3s, box-shadow .3s;
 }
-.part-card:hover { background: rgba(201,165,90,.07); transform: translateX(3px); }
+.part-card:hover {
+  transform: translateY(-4px); border-color: rgba(201,165,90,.3);
+  box-shadow: 0 12px 30px rgba(0,0,0,.3);
+}
 
 .avatar {
-  width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
-  background: linear-gradient(135deg, #1d2f47, rgba(201,165,90,.12));
-  border: 1px solid rgba(201,165,90,.3);
+  width: 52px; height: 52px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--navy-mid), #1c2e45);
+  border: 1px solid var(--border);
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Playfair Display', serif;
-  font-size: 1rem; font-weight: 700; color: var(--gold);
+  font-family: 'Playfair Display', serif; font-weight: 600;
+  color: var(--gold-lt); font-size: 1.1rem; flex-shrink: 0;
 }
 
-.part-name {
-  font-family: 'Outfit', sans-serif;
-  font-size: .92rem; font-weight: 500;
-  color: rgba(244,240,230,.9); line-height: 1.3;
-}
-.part-role {
-  font-size: .68rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
-  color: var(--muted); margin-top: 3px;
-}
+.part-name { font-size: .95rem; font-weight: 500; color: var(--cream); margin-bottom: 2px; }
+.part-role { font-size: .72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
 
-.part-empty {
-  grid-column: 1/-1; padding: 52px; text-align: center;
-  font-size: .9rem; color: var(--muted);
-}
+.part-empty { grid-column: 1/-1; text-align: center; padding: 60px; color: var(--muted); font-style: italic; }
 
 /* FOOTER */
 .site-footer {
-  background: var(--navy-mid); border-top: 1px solid var(--border);
-  padding: 32px clamp(28px,6vw,100px);
-  display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: 14px;
+  padding: 60px clamp(28px,6vw,100px);
+  border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 24px;
 }
-.footer-brand {
-  font-family: 'Playfair Display', serif;
-  font-size: 1rem; font-weight: 500; color: var(--muted);
-}
-.footer-brand strong { color: var(--gold); font-weight: 700; }
-.footer-copy { font-size: .7rem; color: rgba(244,240,230,.2); letter-spacing: .06em; }
+.footer-brand { font-size: .85rem; color: var(--muted); }
+.footer-brand strong { color: var(--gold); }
+.footer-copy { font-size: .75rem; color: rgba(244,240,230,.2); }
 
-/* WATSON CHAT — fixed bottom left */
+/* WATSON CHAT */
 #watson-chat-wrapper {
-  position: fixed; bottom: 26px; left: 26px; z-index: 800;
-  display: flex; flex-direction: column; align-items: flex-start; gap: 8px;
+  position: fixed; bottom: 30px; left: 30px; z-index: 1000;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 10px;
 }
 #watson-label {
-  background: rgba(11,22,35,.95);
-  border: 1px solid rgba(201,165,90,.3); border-radius: 20px;
-  padding: 5px 14px;
-  font-family: 'Outfit', sans-serif;
-  font-size: .64rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
-  color: var(--gold); backdrop-filter: blur(10px);
-  box-shadow: 0 2px 14px rgba(0,0,0,.35);
-  pointer-events: none; white-space: nowrap;
-  animation: fadeUp .5s 1.4s ease both; opacity: 0; animation-fill-mode: both;
+  background: var(--navy-mid); border: 1px solid var(--gold-dim);
+  padding: 6px 14px; border-radius: 20px; font-size: .7rem;
+  color: var(--gold-lt); letter-spacing: .08em; text-transform: uppercase;
+  font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,.2);
+  animation: fadeUp 1s 1.5s both;
 }
-#root { /* Watson injects bubble here */ }
 
 /* ANIMATIONS */
 @keyframes fadeUp {
-  from { opacity:0; transform:translateY(26px); }
-  to   { opacity:1; transform:translateY(0); }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 @keyframes fadeDown {
-  from { opacity:0; transform:translateY(-14px); }
-  to   { opacity:1; transform:translateY(0); }
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 @keyframes slowZoom {
-  from { transform:scale(1.06); }
-  to   { transform:scale(1.0); }
+  from { transform: scale(1.0); }
+  to { transform: scale(1.12); }
 }
 
-.reveal { opacity:0; transform:translateY(32px); transition:opacity .75s ease,transform .75s ease; }
-.reveal.in { opacity:1; transform:none; }
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity .8s ease, transform .8s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
 
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--navy); }
-::-webkit-scrollbar-thumb { background: rgba(201,165,90,.22); border-radius: 2px; }
 </style>
 </head>
 <body>
 
-<!-- ════════════════════════════
-     🔐 LOGIN
-════════════════════════════ -->
+<!-- LOGIN -->
 <div id="login-screen">
   <div class="login-box">
-
     <div class="login-ornament">
       <div class="login-ornament-line"></div>
       <div class="login-ornament-gem"></div>
       <div class="login-ornament-line"></div>
     </div>
-
-    <p class="login-kicker">FDC · Programa de Desenvolvimento de Conselheiros</p>
-
-    <h1 class="login-title">
-      Turma 78
-      <em>Portal exclusivo dos participantes</em>
-    </h1>
-
-    <p class="login-sub">
-      O acesso é restrito aos membros da turma.<br>
-      Digite seu nome exatamente como consta na lista.
-    </p>
+    
+    <div class="login-kicker">Portal do Conselheiro</div>
+    <h1 class="login-title">Turma 78<em>PDC · Fundação Dom Cabral</em></h1>
+    <p class="login-sub">Identifique-se para acessar o conteúdo exclusivo da turma e interagir com nosso Assistente de Governança.</p>
 
     <div class="field-group">
-      <input
-        type="text" id="login-input"
-        placeholder="Seu nome completo"
-        autocomplete="name"
-        onkeydown="if(event.key==='Enter') doLogin()"
-      />
+      <input type="text" id="login-input" placeholder="Digite seu nome completo..." onkeydown="if(event.key==='Enter') doLogin()">
     </div>
-
-    <div class="login-err" id="login-err"></div>
-
-    <button class="login-btn" onclick="doLogin()">Acessar o Portal →</button>
-
-    <p class="login-note">PDC · Turma 78 · FDC 2026</p>
+    <div id="login-err" class="login-err"></div>
+    
+    <button class="login-btn" onclick="doLogin()">Entrar no Portal</button>
+    
+    <div class="login-note">Acesso restrito a participantes registrados.</div>
   </div>
 </div>
 
-<!-- ════════════════════════════
-     📄 MAIN PAGE
-════════════════════════════ -->
+<!-- MAIN PAGE -->
 <div id="main-page">
 
+  <!-- TOPBAR -->
   <header class="topbar">
     <div class="topbar-brand">
       <div class="tb-pip"></div>
-      PDC <span>·</span> Turma 78
+      FDC <span>|</span> PDC 78
     </div>
     <nav class="topbar-nav">
-      <a href="#sobre">Sobre</a>
+      <a href="#sobre">O Programa</a>
       <a href="#participantes">Participantes</a>
     </nav>
     <div class="topbar-user" id="topbar-user"></div>
   </header>
 
   <!-- HERO -->
-  <section class="hero" id="home">
+  <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <div class="hero-eyebrow">Fundação Dom Cabral · 2026</div>
-      <h1 class="hero-h1">
-        Turma 78<br>
-        <em>Programa de<br>Desenvolvimento<br>de Conselheiros</em>
-      </h1>
-      <p class="hero-lead">
-        Uma jornada de ética, governança e excelência em conselhos —
-        formando líderes para os desafios da gestão corporativa contemporânea.
-      </p>
+      <div class="hero-eyebrow">Formação de Alto Nível</div>
+      <h1 class="hero-h1">Liderança &<br><em>Governança</em></h1>
+      <p class="hero-lead">Bem-vindo ao espaço digital da 78ª Turma do Programa de Desenvolvimento de Conselheiros da Fundação Dom Cabral.</p>
     </div>
   </section>
 
   <!-- SOBRE -->
   <section class="section sobre-wrap" id="sobre">
     <div class="sobre-grid">
-
+      
       <div class="reveal">
         <div class="sec-kicker">Sobre o Programa</div>
         <h2 class="sobre-h2">Governança<br><em>com propósito</em></h2>
@@ -702,6 +653,17 @@ function initReveal() {
 
 /* ─── IBM WATSON ORCHESTRATE ─── */
 function initWatson() {
+  const SIMULATED_API_KEY = "azE6dXNyX2RmYjdiYjI0LTA5MTMtM2Q0OC1hNTMyLTczYTM5MmE2Yjk4Njp3amFPSmdPVmU2ZzBuZmxnaFZRaE9lT0xYcDdKc2o2Sm1Vd3NOVEx0VWpRPTpZRkc0";
+  const IBM_PUBLIC_KEY = `-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAv5tKsLclJDXHqpORVV2t
+GPaaUaGQQs0lupiSd0PsY02LuJgm+tVPhx2Q4LPoN+GsFmFe4TMFmC9w8UCFhwKK
+42RIYWG1AvJ5CwuMGhcIjKLb3yqpTjZgvHlpJI9KnrKGTPjnwa9is1S5IvQwNgf3
+wlVX5K9+KKTRY5zhlBNYP7VFfU5+z7AenIAXNnj5CiMTEt9XFpixZ5wL806foC65
+2TsewP0cQ5eUm3j5r0xUQ7ez2YPPO1bDhfug31aARaAglrOWfUcmH9ij/cNxDTcg
+BGa/MJM/tak+TNBeJlAD0Q124fbZMFENr7ZSuNzBGoOLLhKQZ2RC1kMyGSUGVY0f
+XQIDAQAB
+-----END PUBLIC KEY-----`;
+
   window.wxOConfiguration = {
     orchestrationID: "20250515-0817-2486-8019-c55acc2aa9da_20250515-1932-5868-002f-259f7ce4a770",
     hostURL: "https://dl.watson-orchestrate.ibm.com",
@@ -710,10 +672,19 @@ function initWatson() {
       agentId: "7122d0d6-890d-40df-a29f-441c6adcdfca",
     }
   };
+
   setTimeout(function () {
     const s = document.createElement('script');
     s.src = `${window.wxOConfiguration.hostURL}/wxochat/wxoLoader.js?embed=true`;
-    s.addEventListener('load', () => wxoLoader.init());
+    s.addEventListener('load', () => {
+      const instance = wxoLoader.init();
+      
+      // Handle authentication event to provide the API key as a token
+      instance.on('authTokenNeeded', (event) => {
+        console.log('Watson Orchestrate: Providing simulated API key as auth token.');
+        event.authToken = SIMULATED_API_KEY;
+      });
+    });
     document.head.appendChild(s);
   }, 0);
 }
